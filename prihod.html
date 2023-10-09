@@ -4,8 +4,34 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
+   <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
-   <h1>Приход</h1>
+   <button class="tablink home" onclick="openPage('Home')">Приход</button>
+   <button class="tablink news" onclick="openPage('News')" id="defaultOpen">
+   Остатки</button>
+   <button class="tablink contact" onclick="openPage('Contact')">Выдать</button>
+   <button class="tablink about" onclick="openPage('About')">Личная карточка</button>
+
+<div id="Home" class="tabcontent">
+  <h3>Home</h3>
+  <p>Home is where the heart is..</p>
+</div>
+
+<div id="News" class="tabcontent">
+  <h3>News</h3>
+  <p>Some news this fine day!</p>
+</div>
+
+<div id="Contact" class="tabcontent">
+  <h3>Contact</h3>
+  <p>Get in touch, or swing by for a cup of coffee.</p>
+</div>
+
+<div id="About" class="tabcontent">
+  <h3>About</h3>
+  <p>Who we are and what we do.</p>
+</div>
+<script src="/js/main.js"></script>
 </body>
 </html>
