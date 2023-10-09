@@ -1,6 +1,17 @@
-/* body {
+*{
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+
+
+body {
    background-color: bisque;
-} */
+   /* max-width: 50%;
+   margin: 0 auto; */
+}
+
+
 
 /* Set height of body and the document to 100% to enable "full page tabs" */
 body, html {
@@ -51,4 +62,5 @@ body, html {
  .about{
    background-color: rgb(255, 242, 218);
  }
+
  
