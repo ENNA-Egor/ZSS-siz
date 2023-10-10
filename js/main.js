@@ -24,17 +24,6 @@ function openPage(pageName, elmnt, color) {
 
  
 
-  // var subjectObject = {
-  //   "Front-end": {
-  //     "HTML": ["Links", "Images", "Tables", "Lists"],
-  //     "CSS": ["Borders", "Margins", "Backgrounds", "Float"],
-  //     "JavaScript": ["Variables", "Operators", "Functions", "Conditions"]
-  //   },
-  //   "Back-end": {
-  //     "PHP": ["Variables", "Strings", "Arrays"],
-  //     "SQL": ["SELECT", "UPDATE", "DELETE"]
-  //   }
-  // }
   var subjectObject = {
     "Летний костюм": {
       "44-46": ["170-176", "182-188"],
