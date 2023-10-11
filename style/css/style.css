@@ -1,0 +1,91 @@
+body {
+  background-color: rgb(244, 255, 196);
+  min-width: 600px;
+}
+
+/* Set height of body and the document to 100% to enable "full page tabs" */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+.tablinks {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.divtablink {
+  display: flex;
+  /* width: calc(15% + 10px); */
+  width: 15%;
+  border: 2px solid rgb(30, 129, 0);
+  border-bottom: 0px;
+}
+
+.tablink {
+  background-color: #555;
+  color: rgb(99, 99, 99);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 100%;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+/* .tabset{
+  display: flex;
+} */
+.tabcontent {
+  color: rgb(99, 99, 99);
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+  max-width: 60%;
+  margin: 0 auto;
+  border: 2px solid rgb(30, 129, 0);
+}
+
+.btn {
+  opacity: 0.5;
+}
+
+#Home {
+  background-color: rgb(209, 254, 163);
+}
+
+#News {
+  background-color: rgb(180, 255, 106);
+}
+
+#Contact {
+  background-color: rgb(160, 255, 65);
+}
+
+#About {
+  background-color: rgb(140, 255, 25);
+}
+
+.home {
+  background-color: rgb(209, 254, 163);
+}
+
+.news {
+  background-color: rgb(180, 255, 106);
+}
+
+.contact {
+  background-color: rgb(160, 255, 65);
+}
+
+.about {
+  background-color: rgb(140, 255, 25);
+}
