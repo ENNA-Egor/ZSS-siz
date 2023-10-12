@@ -18,8 +18,10 @@ function openPage(pageName, elmnt, color) {
     // // Add the specific color to the button used to open the tab content
     // elmnt.style.backgroundColor = color;
     console.log(pageName);
-    document.getElementByClass(pageName).classList.add('active');
-
+    let elem = document.querySelector(pageName);
+    console.log(elem);
+    elem.classList.add('active');
+  //  console.log(document.querySelector(pageName));
   }
   
   // Get the element with id="defaultOpen" and click on it

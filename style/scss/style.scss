@@ -66,30 +66,22 @@ body {
    opacity: 0.5;
   }
   
-  #Home {
+  #Home, .home {
     background-color:  $home;
   }
-  #News {
+  #News, .news {
     background-color: $news;
   }
-  #Contact {
+  #Contact, .contact {
     background-color: $contact;
   }
-  #About {
+  #About, .about {
     background-color:$about;
   }
  
-  .home{
-    background-color:  $home;;
-  }
-  .news{
-    background-color: $news;;
-  }
-  .contact{
-    background-color: $contact;
-  }
-  .about{
-    background-color:$about;
-  }
+.active{
+  border: solid 5px red;
+  border-radius: 10px;
+}
  
   

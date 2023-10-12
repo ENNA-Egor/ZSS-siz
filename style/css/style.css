@@ -58,34 +58,23 @@ body, html {
   opacity: 0.5;
 }
 
-#Home {
+#Home, .home {
   background-color: rgb(209, 254, 163);
 }
 
-#News {
+#News, .news {
   background-color: rgb(180, 255, 106);
 }
 
-#Contact {
+#Contact, .contact {
   background-color: rgb(160, 255, 65);
 }
 
-#About {
+#About, .about {
   background-color: rgb(140, 255, 25);
 }
 
-.home {
-  background-color: rgb(209, 254, 163);
-}
-
-.news {
-  background-color: rgb(180, 255, 106);
-}
-
-.contact {
-  background-color: rgb(160, 255, 65);
-}
-
-.about {
-  background-color: rgb(140, 255, 25);
+.active {
+  border: solid 5px red;
+  border-radius: 10px;
 }
