@@ -10,13 +10,13 @@
 <body>
   <div class="tablinks">
     <div class="divtablink">
-      <button class="home  tablink"  onclick="openPage('.home', 'TabHome')" id="defaultOpen">Приход</button>
+      <button class="home  tablink"  onclick="openPage('.home', 'TabHome')" >Приход</button>
     </div>
     <div class="divtablink">
       <button class="tablink news" onclick="openPage('.news', 'TabNews')" >Остатки</button>
     </div>
       <div class="divtablink">
-      <button class="tablink contact" onclick="openPage('.contact', 'TabContact')">Выдать</button>
+      <button class="tablink contact" onclick="openPage('.contact', 'TabContact')" id="defaultOpen">Выдать</button>
     </div>
       <div class="divtablink">
       <button class="tablink about" onclick="openPage('.about', 'TabAbout')">Личная карточка</button>
@@ -24,39 +24,31 @@
   </div>
   <div class="tabset">
     <div id="TabHome" class="tabcontent " style="display: block;">
-      <!-- <h3>Home</h3>
-      <p>Home is where the heart is..</p> -->
       <form name="form1" id="form1" action="">
         <div>
           <input type="date" class="btn btn-success m-2">
         </div>
-        <br><br>
         <legend class="text-primary" style="--bs-text-opacity: .5;"> Наименование: 
         <select name="subject" id="subject" class="btn btn-success m-2">
           <option value="" selected="selected">Выберите наименование СИЗ</option>
         </select>
-        <br><br>
         <legend class="text-primary" style="--bs-text-opacity: .5;"> Размер:
          <select name="topic" id="topic" class="btn btn-success m-2" >
           <option value="" selected="selected">Выберите размер</option>
         </select>
       </legend>
-        <br><br>
         <legend class="text-primary" style="--bs-text-opacity: .5;"> Рост:
           <select name="chapter" id="chapter" class="btn btn-success m-2">
             <option value="" selected="selected">Выберите рост</option>
           </select>
         </legend>
         </legend>
-        <br><br>
         <legend class="text-primary" style="--bs-text-opacity: .5;">Количество
           <input type="number" class="btn btn-success m-2">
-          <br><br>
         </legend>
         <legend class="text-primary" style="--bs-text-opacity: .5;">Стоимость
           <input type="number" class="btn btn-success m-2">
         </legend>
-        <br><br>
         <input type="submit" class="btn btn-success m-2"value="Записать">
       </form>
     </div>

@@ -6,12 +6,13 @@
 body {
     background-color : rgb(244, 255, 196);
     min-width: 600px;
+    margin-top: 30px;
  }
  
  
  
  /* Set height of body and the document to 100% to enable "full page tabs" */
- body, html {
+ html {
     height: 100%;
     margin: 0;
     font-family: Arial;
@@ -30,9 +31,11 @@ body {
    width: 15%;
    border: 2px solid rgb(30, 129, 0);
    border-bottom: 0px;
+   position: relative;
  }
  
   .tablink {
+    // border: 2px solid rgb(30, 129, 0);
     background-color: #555;
     color: rgb(99, 99, 99);
     border: none;
@@ -41,11 +44,12 @@ body {
     padding: 14px 16px;
     font-size: 17px;
     width: 100%;
+    &:hover{
+      background-color: #f8fc22;
+    }
   }
   
-  .tablink:hover {
-    background-color: #777;
-  }
+
   
   /* Style the tab content (and add height:100% for full page content) */
  /* .tabset{
@@ -66,22 +70,25 @@ body {
    opacity: 0.5;
   }
   
-  #Home, .home {
+  #TabHome, .home {
     background-color:  $home;
   }
-  #News, .news {
+  #TabNews, .news {
     background-color: $news;
   }
-  #Contact, .contact {
+  #TabContact, .contact {
     background-color: $contact;
   }
-  #About, .about {
+  #TabAbout, .about {
     background-color:$about;
   }
  
 .active{
-  border: solid 5px red;
-  border-radius: 10px;
+  // border: solid 3px rgb(3, 95, 0);
+  border-bottom: 0;
+  position: relative;
+  top: 1px;
+  // border-radius: 10px;
 }
  
   

@@ -5,26 +5,22 @@ function openPage(pageName, pageName1, elmnt, color) {
     for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
     }
-  
-    // // Remove the background color of all tablinks/buttons
-    // tablinks = document.getElementsByClassName("tablink");
-    // for (i = 0; i < tablinks.length; i++) {
-    //   tablinks[i].style.backgroundColor = "";
-    // }
+
   
     // // Show the specific tab content
     document.getElementById(pageName1).style.display = "block";
-    console.log(document.getElementById(pageName1));
   
     // // Add the specific color to the button used to open the tab content
-    // elmnt.style.backgroundColor = color
     let elem = document.querySelector(pageName);
+    let elemAll = document.querySelectorAll('.tablink');
+    for(i=0; i< elemAll.length; i++){
+      elemAll[i].classList.remove('active');
+    }
     elem.classList.add('active');
-  //  console.log(document.querySelector(pageName));
   }
   
   // Get the element with id="defaultOpen" and click on it
-  // document.getElementById("defaultOpen").click();
+  document.getElementById("defaultOpen").click();
 
  
 
