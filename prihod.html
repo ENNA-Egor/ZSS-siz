@@ -10,20 +10,20 @@
 <body>
   <div class="tablinks">
     <div class="divtablink">
-      <button class="home  tablink"  onclick="openPage('.home')" id="defaultOpen">Приход</button>
+      <button class="home  tablink"  onclick="openPage('.home', 'TabHome')" id="defaultOpen">Приход</button>
     </div>
     <div class="divtablink">
-      <button class="tablink news" onclick="openPage('.news')" >Остатки</button>
+      <button class="tablink news" onclick="openPage('.news', 'TabNews')" >Остатки</button>
     </div>
       <div class="divtablink">
-      <button class="tablink contact" onclick="openPage('.contact')">Выдать</button>
+      <button class="tablink contact" onclick="openPage('.contact', 'TabContact')">Выдать</button>
     </div>
       <div class="divtablink">
-      <button class="tablink about" onclick="openPage('.about')">Личная карточка</button>
+      <button class="tablink about" onclick="openPage('.about', 'TabAbout')">Личная карточка</button>
     </div>
   </div>
   <div class="tabset">
-    <div id="Home" class="tabcontent " style="display: block;">
+    <div id="TabHome" class="tabcontent " style="display: block;">
       <!-- <h3>Home</h3>
       <p>Home is where the heart is..</p> -->
       <form name="form1" id="form1" action="">
@@ -61,16 +61,16 @@
       </form>
     </div>
 
-    <div id="News" class="tabcontent">
+    <div id="TabNews" class="tabcontent">
       <h3>News</h3>
       <p>Some news this fine day!</p>
     </div>
 
-    <div id="Contact" class="tabcontent">
+    <div id="TabContact" class="tabcontent">
       <h3>Contact</h3>
       <p>Get in touch, or swing by for a cup of coffee.</p>
     </div>
-    <div id="About" class="tabcontent">
+    <div id="TabAbout" class="tabcontent">
       <h3>About</h3>
       <p>Who we are and what we do.</p>
     </div>
