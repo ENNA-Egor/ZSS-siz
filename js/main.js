@@ -44,7 +44,7 @@ function openPage(pageName, pageName1, elmnt, color) {
       "60-62": ["170-176", "182-188"]
     }
   }
-  window.onload = function() {
+  window.onload = function setVal() {
     var subjectSel = document.getElementById("subject");
     var topicSel = document.getElementById("topic");
     var chapterSel = document.getElementById("chapter");
@@ -71,12 +71,12 @@ function openPage(pageName, pageName1, elmnt, color) {
     }
   }
   
-  window.onload = function() {
-    var subjectSel = document.getElementById("subject2");
-    for (var x in subjectObject) {
-      subjectSel.options[subjectSel.options.length] = new Option(x, x);
-    }
-  };
+  // window.onload = function setVal() {
+  //   var subjectSel = document.getElementById("subject2");
+  //   for (var x in subjectObject) {
+  //     subjectSel.options[subjectSel.options.length] = new Option(x, x);
+  //   }
+  // };
 
   document.querySelector('.btn-ost').onclick = function(){
      alert('Открываем')
