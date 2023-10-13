@@ -71,3 +71,17 @@ function openPage(pageName, pageName1, elmnt, color) {
     }
   }
   
+  window.onload = function() {
+    var subjectSel = document.getElementById("subject2");
+    for (var x in subjectObject) {
+      subjectSel.options[subjectSel.options.length] = new Option(x, x);
+    }
+  };
+
+  document.querySelector('.btn-ost').onclick = function(){
+     alert('Открываем')
+    };
+
+  document.querySelector('.btn-pr').onclick = function(){
+     alert('Записываем')
+    };
