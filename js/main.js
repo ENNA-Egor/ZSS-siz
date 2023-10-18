@@ -48,6 +48,8 @@ function openPage(pageName, pageName1, elmnt, color) {
     var subjectSel = document.getElementById("subject");
     var topicSel = document.getElementById("topic");
     var chapterSel = document.getElementById("chapter");
+    console.log('Ok');
+    console.log(Object.keys(subjectObject));
     for (var x in subjectObject) {
       subjectSel.options[subjectSel.options.length] = new Option(x, x);
     }
@@ -71,12 +73,12 @@ function openPage(pageName, pageName1, elmnt, color) {
     }
   }
   
-  // window.onload = function setVal() {
+  // window.onload = function setVal2() {
   //   var subjectSel = document.getElementById("subject2");
   //   for (var x in subjectObject) {
   //     subjectSel.options[subjectSel.options.length] = new Option(x, x);
   //   }
-  // };
+  // }
 
   document.querySelector('.btn-ost').onclick = function(){
      alert('Открываем')
