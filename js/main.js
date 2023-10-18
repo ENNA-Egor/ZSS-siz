@@ -88,5 +88,11 @@ document.querySelector('.btn-ost').onclick = function () {
 };
 
 document.querySelector('.btn-pr').onclick = function () {
-  alert('Записываем')
+  alert('Записываем');
+  let nameSiz = document.querySelector('.name_siz');
+  let sizeSiz = document.querySelector('.sizeSiz');
+  let rostSiz = document.querySelector('.rost');
+  let quantitySiz = document.querySelector('.quantity');
+  let costSiz = document.querySelector('.cost');
+  console.log(nameSiz.value, ('Размер  '+sizeSiz.value), ('Рост  '+rostSiz.value), ('Количество  '+quantitySiz.value), ('Стоимость  '+costSiz.value));
 };
