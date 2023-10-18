@@ -44,12 +44,15 @@ function openPage(pageName, pageName1, elmnt, color) {
       "60-62": ["170-176", "182-188"]
     }
   }
+
+
+
+
   window.onload = function setVal() {
     var subjectSel = document.getElementById("subject");
     var topicSel = document.getElementById("topic");
     var chapterSel = document.getElementById("chapter");
-    console.log('Ok');
-    console.log(Object.keys(subjectObject));
+    
     for (var x in subjectObject) {
       subjectSel.options[subjectSel.options.length] = new Option(x, x);
     }
@@ -71,14 +74,14 @@ function openPage(pageName, pageName1, elmnt, color) {
         chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);
       }
     }
+
+    var subjectSel2 = document.getElementById("subject2");
+    for (var k in subjectObject) {
+      subjectSel2.options[subjectSel2.options.length] = new Option(k, k);
+    }
   }
   
-  // window.onload = function setVal2() {
-  //   var subjectSel = document.getElementById("subject2");
-  //   for (var x in subjectObject) {
-  //     subjectSel.options[subjectSel.options.length] = new Option(x, x);
-  //   }
-  // }
+  
 
   document.querySelector('.btn-ost').onclick = function(){
      alert('Открываем')
