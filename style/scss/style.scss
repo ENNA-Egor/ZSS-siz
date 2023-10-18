@@ -4,95 +4,103 @@
 
 
 body {
-    background-color : rgb(244, 255, 196);
-    min-width: 600px;
-    margin-top: 30px;
- }
- 
- 
- 
- /* Set height of body and the document to 100% to enable "full page tabs" */
- html {
-    height: 100%;
-    margin: 0;
-    font-family: Arial;
-  }
-  
-  /* Style tab links */
- 
-  .tablinks {
-   display: flex;
-   justify-content: center;
-   width: 100%;
-  }
- .divtablink{
-   display: flex;
-   /* width: calc(15% + 10px); */
-   width: 15%;
-   border: 2px solid rgb(30, 129, 0);
-   border-bottom: 0px;
-   position: relative;
- }
- 
-  .tablink {
-    // border: 2px solid rgb(30, 129, 0);
-    background-color: #555;
-    color: rgb(99, 99, 99);
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 5px 6px;
-    font-size: 14px;
-    width: 100%;
-    &:hover{
-      background-color: #f8fc22;
-    }
-  }
-  
+  background-color: rgb(244, 255, 196);
+  min-width: 600px;
+  margin-top: 30px;
+}
 
-  
-  /* Style the tab content (and add height:100% for full page content) */
- /* .tabset{
+
+
+/* Set height of body and the document to 100% to enable "full page tabs" */
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+
+/* Style tab links */
+
+.tablinks {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.divtablink {
+  display: flex;
+  /* width: calc(15% + 10px); */
+  width: 15%;
+  border: 2px solid rgb(30, 129, 0);
+  border-bottom: 0px;
+  position: relative;
+}
+
+.tablink {
+  // border: 2px solid rgb(30, 129, 0);
+  background-color: #555;
+  color: rgb(99, 99, 99);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px 6px;
+  font-size: 14px;
+  width: 100%;
+
+  &:hover {
+    background-color: #f8fc22;
+  }
+}
+
+
+
+/* Style the tab content (and add height:100% for full page content) */
+/* .tabset{
    display: flex;
  } */
- 
-  .tabcontent {
-    color: rgb(99, 99, 99);
-    display: none;
-    padding: 20px 10px;
-    height: 100%;
-    max-width: 60%;
-    margin: 0 auto;
-    border: 2px solid rgb(30, 129, 0);
-  }
- 
-  .btn{
-   opacity: 0.5;
-   font-size: 14px;
-  }
-  
-  #TabHome, .home {
-    background-color:  $home;
-  }
-  #TabNews, .news {
-    background-color: $news;
-  }
-  #TabContact, .contact {
-    background-color: $contact;
-  }
-  #TabAbout, .about {
-    background-color:$about;
-  }
- 
-.active{
+
+.tabcontent {
+  color: rgb(99, 99, 99);
+  display: none;
+  padding: 20px 10px;
+  height: 100%;
+  max-width: 60%;
+  margin: 0 auto;
+  border: 2px solid rgb(30, 129, 0);
+}
+
+.btn {
+  opacity: 0.5;
+  font-size: 14px;
+}
+
+#TabHome,
+.home {
+  background-color: $home;
+}
+
+#TabNews,
+.news {
+  background-color: $news;
+}
+
+#TabContact,
+.contact {
+  background-color: $contact;
+}
+
+#TabAbout,
+.about {
+  background-color: $about;
+}
+
+.active {
   // border: solid 3px rgb(3, 95, 0);
   border-bottom: 0;
   position: relative;
   top: 1px;
   // border-radius: 10px;
 }
-legend{
+
+legend {
   font-size: 14px;
 }
- 
-  

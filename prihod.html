@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-   <link rel="stylesheet" href="/style/css/min/style.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="/style/css/min/style.min.css">
 </head>
+
 <body>
   <h1 class="text-success d-flex justify-content-center mt-3">Выдача и учёт спецодежды.</h1>
   <div class="tablinks">
     <div class="divtablink">
-      <button class="home  tablink"  onclick="openPage('.home', 'TabHome')" >Приход</button>
+      <button class="home  tablink" onclick="openPage('.home', 'TabHome')">Приход</button>
     </div>
     <div class="divtablink">
-      <button class="tablink news" onclick="openPage('.news', 'TabNews')" >Остатки</button>
+      <button class="tablink news" onclick="openPage('.news', 'TabNews')">Остатки</button>
     </div>
-      <div class="divtablink">
+    <div class="divtablink">
       <button class="tablink contact" onclick="openPage('.contact', 'TabContact')" id="defaultOpen">Выдать</button>
     </div>
-      <div class="divtablink">
+    <div class="divtablink">
       <button class="tablink about" onclick="openPage('.about', 'TabAbout')">Личная карточка</button>
     </div>
   </div>
@@ -29,16 +32,16 @@
         <div>
           <input type="date" class="btn btn-success m-2">
         </div>
-        <legend class="text-primary" style="--bs-text-opacity: .5;"> Наименование: 
-        <select name="subject" id="subject" class="btn btn-success m-2">
-          <option value="" selected="selected">Выберите наименование СИЗ</option>
-        </select>
-      </legend>
+        <legend class="text-primary" style="--bs-text-opacity: .5;"> Наименование:
+          <select name="subject" id="subject" class="btn btn-success m-2">
+            <option value="" selected="selected">Выберите наименование СИЗ</option>
+          </select>
+        </legend>
         <legend class="text-primary" style="--bs-text-opacity: .5;"> Размер:
-         <select name="topic" id="topic" class="btn btn-success m-2" >
-          <option value="" selected="selected">Выберите размер</option>
-        </select>
-      </legend>
+          <select name="topic" id="topic" class="btn btn-success m-2">
+            <option value="" selected="selected">Выберите размер</option>
+          </select>
+        </legend>
         <legend class="text-primary" style="--bs-text-opacity: .5;"> Рост:
           <select name="chapter" id="chapter" class="btn btn-success m-2">
             <option value="" selected="selected">Выберите рост</option>
@@ -50,20 +53,20 @@
         <legend class="text-primary" style="--bs-text-opacity: .5;">Стоимость
           <input type="number" class="btn btn-success m-2">
         </legend>
-        <input type="button" class="btn btn-pr btn-success m-2"value="Записать">
+        <input type="button" class="btn btn-pr btn-success m-2" value="Записать">
       </form>
     </div>
 
     <div id="TabNews" class="tabcontent">
       <form name="form2" id="form2" action="">
         <div>
-      <button type="button" class="btn btn-ost btn-success m-2">Остатки</button> 
-    </div>
-    <div>
-        <select name="subject2" id="subject2" class="btn btn-success m-2">
-          <option value="" selected="selected">Выберите наименование СИЗ</option>
-        </select>
-      </div>
+          <select name="subject2" id="subject2" class="btn btn-success m-2">
+            <option value="" selected="selected">Выберите наименование СИЗ</option>
+          </select>
+        </div>
+        <div>
+          <button type="button" class="btn btn-ost btn-success m-2">Вывести остатки</button>
+        </div>
       </form>
     </div>
 
@@ -77,7 +80,10 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <script src="/js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script src="/js/main.js"></script>
 </body>
+
 </html>
