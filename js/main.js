@@ -89,10 +89,12 @@ document.querySelector('.btn-ost').onclick = function () {
 
 document.querySelector('.btn-pr').onclick = function () {
   alert('Записываем');
+  let dateSet = document.querySelector('.dateSet');
   let nameSiz = document.querySelector('.name_siz');
   let sizeSiz = document.querySelector('.sizeSiz');
   let rostSiz = document.querySelector('.rost');
   let quantitySiz = document.querySelector('.quantity');
   let costSiz = document.querySelector('.cost');
-  console.log(nameSiz.value, ('Размер  '+sizeSiz.value), ('Рост  '+rostSiz.value), ('Количество  '+quantitySiz.value), ('Стоимость  '+costSiz.value));
+  // console.log( dateSet.value);
+  console.log(nameSiz.value, ('Размер  '+sizeSiz.value), ('Рост  '+rostSiz.value), ('Количество  '+quantitySiz.value), ('Стоимость  '+costSiz.value), ('Дата  прихода    '+dateSet.value));
 };
