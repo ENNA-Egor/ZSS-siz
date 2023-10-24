@@ -97,4 +97,6 @@ document.querySelector('.btn-pr').onclick = function () {
   let costSiz = document.querySelector('.cost');
   // console.log( dateSet.value);
   console.log(nameSiz.value, ('Размер  '+sizeSiz.value), ('Рост  '+rostSiz.value), ('Количество  '+quantitySiz.value), ('Стоимость  '+costSiz.value), ('Дата  прихода    '+dateSet.value));
+  const form = document.getElementById('form1');
+  form.reset();
 };
