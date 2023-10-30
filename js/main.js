@@ -84,7 +84,9 @@ window.onload = function setVal() {
 
 
 document.querySelector('.btn-ost').onclick = function () {
-  alert('Открываем')
+  alert('Открываем');
+  const form2 = document.getElementById('form2');
+  form2.reset();
 };
 
 document.querySelector('.btn-pr').onclick = function () {
