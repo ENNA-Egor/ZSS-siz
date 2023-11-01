@@ -98,7 +98,20 @@ document.querySelector('.btn-pr').onclick = function () {
   let quantitySiz = document.querySelector('.quantity');
   let costSiz = document.querySelector('.cost');
   // console.log( dateSet.value);
-  console.log(nameSiz.value, ('Размер  '+sizeSiz.value), ('Рост  '+rostSiz.value), ('Количество  '+quantitySiz.value), ('Стоимость  '+costSiz.value), ('Дата  прихода    '+dateSet.value));
+  const dataIn = {};
+  dataIn.data =dateSet.value, 
+  dataIn.name= nameSiz.value, 
+  dataIn.size= sizeSiz.value,
+  dataIn.rost= rostSiz.value,
+  dataIn.quanty=quantitySiz.value,
+  dataIn.cost= costSiz.value
+  console.log (dataIn);
+
+  const dataInJson =JSON.stringify(dataIn);
+
+  console.log (dataInJson);
+
+  // console.log(nameSiz.value, ('Размер  '+sizeSiz.value), ('Рост  '+rostSiz.value), ('Количество  '+quantitySiz.value), ('Стоимость  '+costSiz.value), ('Дата  прихода    '+dateSet.value));
   const form = document.getElementById('form1');
   form.reset();
 };
