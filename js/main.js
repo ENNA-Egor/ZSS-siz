@@ -115,3 +115,11 @@ document.querySelector('.btn-pr').onclick = function () {
   const form = document.getElementById('form1');
   form.reset();
 };
+
+IMask(document.getElementById('quantity'),{
+  mask: Number,
+});
+// IMask(document.getElementById('cost'),{
+//   mask:/^\d*(\.\d\d)?(\$|руб)/
+// });
+
