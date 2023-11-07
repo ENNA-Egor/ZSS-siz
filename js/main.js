@@ -1,3 +1,6 @@
+// const fs = require('fs');
+
+
 function openPage(pageName, pageName1, elmnt, color) {
   // // Hide all elements with class="tabcontent" by default */
   var i, tabcontent, tablinks;
@@ -123,3 +126,6 @@ IMask(document.getElementById('quantity'),{
 //   mask:/^\d*(\.\d\d)?(\$|руб)/
 // });
 
+// fs.writeFile('newData.txt', dataInJson, (err)=>{
+//   if (err) console.log(err);
+// })
