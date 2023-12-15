@@ -22,13 +22,14 @@ html {
   display: flex;
   /* width: calc(15% + 10px); */
   width: 15%;
-  border: 2px solid rgb(30, 129, 0);
+  border: 1px solid rgb(30, 129, 0);
   border-bottom: 0px;
   position: relative;
 }
 
 .tablink {
   background-color: #555;
+  border: 1px solid rgb(30, 129, 0);
   color: rgb(99, 99, 99);
   border: none;
   outline: none;
@@ -43,8 +44,8 @@ html {
 
 /* Style the tab content (and add height:100% for full page content) */
 /* .tabset{
-  display: flex;
-} */
+   display: flex;
+ } */
 .tabcontent {
   color: rgb(99, 99, 99);
   display: none;
@@ -52,7 +53,7 @@ html {
   height: 100%;
   max-width: 60%;
   margin: 0 auto;
-  border: 2px solid rgb(30, 129, 0);
+  border: 1px solid rgb(30, 129, 0);
 }
 
 .btn {
@@ -60,19 +61,23 @@ html {
   font-size: 14px;
 }
 
-#TabHome, .home {
+#TabHome,
+.home {
   background-color: rgb(209, 254, 163);
 }
 
-#TabNews, .news {
+#TabNews,
+.news {
   background-color: rgb(180, 255, 106);
 }
 
-#TabContact, .contact {
+#TabContact,
+.contact {
   background-color: rgb(160, 255, 65);
 }
 
-#TabAbout, .about {
+#TabAbout,
+.about {
   background-color: rgb(140, 255, 25);
 }
 
