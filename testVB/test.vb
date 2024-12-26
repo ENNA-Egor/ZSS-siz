@@ -1,6 +1,9 @@
 Public firm As String
 Public firmMag As String
 Public CreateData As Date
+Public maxDanger As Byte
+
+
 
 Sub FinishVar()
     If MsgBox("Продолжить создание направлений?", vbYesNo + vbInformation, "Внимание") = vbYes Then
@@ -102,7 +105,7 @@ Private Sub CommandButton1_Click()
     Dim dateDateToRecord As Date
     Dim NameToRecord As String
     Dim rangeLinn As Range
-     
+    maxDanger =4 
         
     Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("authorized_Tables") 'Заполняем ячейку должности ответственного
     For Each rgCellChecked In listobjTables.ListColumns("Фамилия И.О.").DataBodyRange
@@ -114,7 +117,7 @@ Private Sub CommandButton1_Click()
     Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("Harmful_factors_Tab") 'Заполняем таблицу вредных факторов
     For Each rgCellChecked In listobjTables.ListColumns("Профессия").DataBodyRange
         If rgCellChecked.Value = ComboBox_Prof.Value Then
-            For i = 1 To 5
+            For i = 1 To maxDanger
                  ThisWorkbook.Worksheets("Лист1").Cells((i + 27), 2).EntireRow.AutoFit
                  ThisWorkbook.Worksheets("Лист1").Cells((i + 27), 2) = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Вредный фактор " & i).DataBodyRange)
             Next i
