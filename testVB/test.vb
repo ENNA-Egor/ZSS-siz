@@ -1,7 +1,7 @@
 Public firm As String
 Public firmMag As String
 Public CreateData As Date
-Public maxDanger As Byte
+Public maxDanger As Byte  ' Переменная количества вредных факторов
 
 
 
@@ -105,7 +105,7 @@ Private Sub CommandButton1_Click()
     Dim dateDateToRecord As Date
     Dim NameToRecord As String
     Dim rangeLinn As Range
-    maxDanger =4 
+    maxDanger =4  ' Rоличествj вредных факторов
         
     Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("authorized_Tables") 'Заполняем ячейку должности ответственного
     For Each rgCellChecked In listobjTables.ListColumns("Фамилия И.О.").DataBodyRange
