@@ -124,8 +124,9 @@ Private Sub CommandButton1_Click()
     Dim dateDateToRecord As Date
     Dim NameToRecord As String
     Dim rangeLinn As Range
-    maxDanger =4  ' Rоличествj вредных факторов
-        
+    maxDanger = 4  ' Количества вредных факторов
+
+
     Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("authorized_Tables") 'Заполняем ячейку должности ответственного
     For Each rgCellChecked In listobjTables.ListColumns("Фамилия И.О.").DataBodyRange
         If rgCellChecked.Value = ComboBox2.Value Then
@@ -308,7 +309,10 @@ Private Sub CommandButton1_Click()
     If ActiveWorkbook.Worksheets.Count = 1 And ActiveWorkbook.Path = "" Then
         ' сохраняем файл под заданным именем в формате Excel 2003
         ActiveWorkbook.SaveAs Filename, xlWorkbookNormal
- 
+
+        ' выводим файл  на печать
+'        ActiveSheet.PrintOut From:=1, To:=1
+
         ' закрываем сохранённый файл
         ' (удалите следующую строку, если закрывать созданный файл не требуется)
          ActiveWorkbook.Close False
