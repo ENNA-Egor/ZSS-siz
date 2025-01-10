@@ -51,15 +51,21 @@ End Sub
 Private Sub OptionButton3_Click()
  Me.ComboBox_Prof.Visible = False
  Me.ComboBox_Prof_PO.Visible = True
+ Me.TextBoxAdres.Visible = True
+ Me.LabelAdres.Visible = True
 End Sub
 Private Sub OptionButton1_Click()
  Me.ComboBox_Prof.Visible = True
  Me.ComboBox_Prof_PO.Visible = False
+ Me.TextBoxAdres.Visible = False
+ Me.LabelAdres.Visible = False
 End Sub
 
 Private Sub OptionButton2_Click()
  Me.ComboBox_Prof.Visible = True
  Me.ComboBox_Prof_PO.Visible = False
+ Me.TextBoxAdres.Visible = False
+ Me.LabelAdres.Visible = False
 End Sub
 
 Private Sub CommandButton1_Click()
@@ -337,6 +343,8 @@ End Sub
 
 
 
+
+
 Private Sub UserForm_Initialize()
     Dim objControlChecked As Object
     Dim lngCounter As Long
@@ -436,10 +444,12 @@ Sub refilingOt(ByVal strNameSelected As String, ByVal strName2Selected As String
                 If rgCellChecked.Offset(0, 1).Value = strName2Selected Then
                 Me.TextBox_OName = rgCellChecked.Offset(0, 2).Value
                 Me.ComboBox_Prof = rgCellChecked.Offset(0, 3).Value
+                Me.ComboBox_Prof_PO = rgCellChecked.Offset(0, 3).Value
                 DataRozd = rgCellChecked.Offset(0, 4).Value
                 Me.ComboBox1 = rgCellChecked.Offset(0, 5).Value
                 Me.TextBox6 = rgCellChecked.Offset(0, 6).Value
                 Me.TextBox7 = rgCellChecked.Offset(0, 7).Value
+                Me.TextBoxAdres = rgCellChecked.Offset(0, 8).Value
 '                MsgBox "День: " & DatePart("d", DataRozd)
 '                MsgBox "Месяць: " & DatePart("m", DataRozd)
 '                MsgBox "Год: " & DatePart("yyyy", DataRozd)
@@ -490,7 +500,7 @@ Set listobjNameList = ThisWorkbook.Worksheets("Person").ListObjects("FIO_Table")
        For Each objControlChecked In Me.Controls
         If objControlChecked.Tag <> "" Then
             strTagArray = Split(objControlChecked.Tag, "_")
-            If strTagArray(5) = "Y" Then
+            If strTagArray(5) = "Y" And objControlChecked.Visible = True Then
                 If objControlChecked.Value = "" Then
                     MsgBox "заполните все обязательные поля", vbExclamation
                     Exit Sub
@@ -538,3 +548,4 @@ Dim listobjOrderList As ListObject
 
 '    Call CommandButton1_Click
 End Sub
+
