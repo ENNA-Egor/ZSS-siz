@@ -68,7 +68,7 @@ Private Sub OptionButton2_Click()
  Me.LabelAdres.Visible = False
 End Sub
 
-Private Sub CommandButton1_Click()
+Private Sub CreateDokument()
 
 '    Структура тэгов:
 '    Delimiter = "_"
@@ -489,7 +489,7 @@ Set listobjNameList = ThisWorkbook.Worksheets("Person").ListObjects("FIO_Table")
             If rgCellChecked.Offset(0, 1).Value = ComboBox_Name Then
                 If rgCellChecked.Offset(0, 2).Value = TextBox_OName Then
             'MsgBox "Данная запись уже существует. Ввод приведёт к задвоению данных"
-            Call CommandButton1_Click
+            Call CreateDokument
                    Exit Sub
                 End If
             End If
@@ -540,7 +540,7 @@ Dim listobjOrderList As ListObject
     Next objControlChecked
 
     If MsgBox("Создать направление?", vbYesNo + vbInformation, "Внимание") = vbYes Then
-        Call CommandButton1_Click
+        Call CreateDokument
         Else: Call CloseSheet
         'Call CloseSheet
         End If
