@@ -22,7 +22,7 @@ Sub CloseSheet()
    
     Unload Me
     
-         ActiveWorkbook.Worksheets("Лист1").Range("A1:P40").Font.Color = RGB(255, 255, 255)
+         ActiveWorkbook.Worksheets("Направление МО").Range("A1:P40").Font.Color = RGB(255, 255, 255)
        
        
             Application.DisplayAlerts = False
@@ -82,7 +82,7 @@ Private Sub CreateDokument()
     'Dim tagRg As Range
         'Set tagRg = strTagArray
     'Dim objFormaList As ListObject
-        'Set objFormaList = ThisWorkBoook.Workshets("Лист1").Range(tagRg)
+        'Set objFormaList = ThisWorkBoook.Workshets("Направление МО").Range(tagRg)
 
     For Each objControlChecked In Me.Controls  'Проверяем заполнение обязательных полей
         If objControlChecked.Tag <> "" Then
@@ -362,7 +362,7 @@ Sub Direction_MO()
     Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("authorized_Tables") 'Заполняем ячейку должности ответственного
     For Each rgCellChecked In listobjTables.ListColumns("Фамилия И.О.").DataBodyRange
         If rgCellChecked.Value = ComboBox2.Value Then
-            ThisWorkbook.Worksheets("Лист1").Range("A36") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Должность").DataBodyRange)
+            ThisWorkbook.Worksheets("Направление МО").Range("A36") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Должность").DataBodyRange)
         End If
     Next rgCellChecked
 
@@ -370,8 +370,8 @@ Sub Direction_MO()
     For Each rgCellChecked In listobjTables.ListColumns("Профессия").DataBodyRange
         If rgCellChecked.Value = ComboBox_Prof.Value Then
             For i = 1 To maxDanger
-                 ThisWorkbook.Worksheets("Лист1").Cells((i + 27), 2).EntireRow.AutoFit
-                 ThisWorkbook.Worksheets("Лист1").Cells((i + 27), 2) = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Вредный фактор " & i).DataBodyRange)
+                 ThisWorkbook.Worksheets("Направление МО").Cells((i + 27), 2).EntireRow.AutoFit
+                 ThisWorkbook.Worksheets("Направление МО").Cells((i + 27), 2) = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Вредный фактор " & i).DataBodyRange)
             Next i
         End If
     Next rgCellChecked
@@ -379,7 +379,7 @@ Sub Direction_MO()
     Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем ячейку адреса 1
     For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
         If rgCellChecked.Value = ComboBox1.Value Then
-            ThisWorkbook.Worksheets("Лист1").Range("A5") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Адрес1").DataBodyRange)
+            ThisWorkbook.Worksheets("Направление МО").Range("A5") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Адрес1").DataBodyRange)
         End If
     Next rgCellChecked
 
@@ -387,7 +387,7 @@ Sub Direction_MO()
     Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем ячейку адреса 2
     For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
         If rgCellChecked.Value = ComboBox1.Value Then
-            ThisWorkbook.Worksheets("Лист1").Range("A6") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Адрес2").DataBodyRange)
+            ThisWorkbook.Worksheets("Направление МО").Range("A6") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Адрес2").DataBodyRange)
         End If
     Next rgCellChecked
 
@@ -397,7 +397,7 @@ Sub Direction_MO()
                 tel1 = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Телефон").DataBodyRange)
                 tel2 = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Телефон/факс").DataBodyRange)
                 tel3 = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("email").DataBodyRange)
-            ThisWorkbook.Worksheets("Лист1").Range("A7") = tel1 & "   " & tel2 & "   " & tel3
+            ThisWorkbook.Worksheets("Направление МО").Range("A7") = tel1 & "   " & tel2 & "   " & tel3
 
         End If
     Next rgCellChecked
@@ -408,7 +408,7 @@ Sub Direction_MO()
            If rgCellChecked.Value = ComboBox1.Value Then
                 For i = 1 To 13
                     'n = i + 1
-                   ThisWorkbook.Worksheets("Лист1").Cells(10, (i + 1)) = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("ОГРН " & i).DataBodyRange)
+                   ThisWorkbook.Worksheets("Направление МО").Cells(10, (i + 1)) = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("ОГРН " & i).DataBodyRange)
                 Next i
             End If
     Next rgCellChecked
@@ -416,16 +416,16 @@ Sub Direction_MO()
 
            If OptionButton1 = True Then 'Подчёркиваем периодический или предварительный
 
-    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 1)
+    Set rangeLinn = ThisWorkbook.Worksheets("Направление МО").Cells(21, 1)
             rangeLinn.Font.Underline = True
-    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 6)
-            ThisWorkbook.Worksheets("Лист1").Cells(12, 9).Value = "предварительный"
+    Set rangeLinn = ThisWorkbook.Worksheets("Направление МО").Cells(21, 6)
+            ThisWorkbook.Worksheets("Направление МО").Cells(12, 9).Value = "предварительный"
             rangeLinn.Font.Underline = False
             Else:
-    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 1)
+    Set rangeLinn = ThisWorkbook.Worksheets("Направление МО").Cells(21, 1)
             rangeLinn.Font.Underline = False
-    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 6)
-            ThisWorkbook.Worksheets("Лист1").Cells(12, 9).Value = "периодический"
+    Set rangeLinn = ThisWorkbook.Worksheets("Направление МО").Cells(21, 6)
+            ThisWorkbook.Worksheets("Направление МО").Cells(12, 9).Value = "периодический"
             rangeLinn.Font.Underline = True
             End If
 
@@ -439,14 +439,14 @@ Sub Direction_MO()
                         Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем наименование предприятия
                             For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
                                     If rgCellChecked.Value = ComboBox1.Value Then
-                                     ThisWorkbook.Worksheets("Лист1").Range("A2") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Предприятие").DataBodyRange)
+                                     ThisWorkbook.Worksheets("Направление МО").Range("A2") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Предприятие").DataBodyRange)
                                     End If
                         Next rgCellChecked
 
 
 
 
-                 Else: ThisWorkbook.Worksheets("Лист1").Range(tagRg) = objControlChecked.Value 'Целые значения в ячейки согласно данным тегов
+                 Else: ThisWorkbook.Worksheets("Направление МО").Range(tagRg) = objControlChecked.Value 'Целые значения в ячейки согласно данным тегов
               End If
 
                 ElseIf strTagArray(2) = "CombinedToRecord" Then ' запись комбинируемых значений
@@ -454,11 +454,11 @@ Sub Direction_MO()
 
                     If objControlChecked.Name = "ComboBox_FName" Then  'Фамилия Имя отчество
                         NameToRecord = (objControlChecked.Value & "  " & Me.Controls("ComboBox_Name").Value & "  " & Me.Controls("TextBox_OName").Value)  'Собираем данные в одну строку.
-                        ThisWorkbook.Worksheets("Лист1").Range(tagRg).Value = NameToRecord
+                        ThisWorkbook.Worksheets("Направление МО").Range(tagRg).Value = NameToRecord
 
                      ElseIf objControlChecked.Name = "ComboBox_DataRozd_Day" Then 'Дата рождения
                        dateDateToRecord = DateSerial(Me.Controls("ComboBox_DataRozd_Year").Value, Me.Controls("ComboBox_DataRozd_Mont").Value, objControlChecked.Value) 'Собираем данные в одну строку.
-                       ThisWorkbook.Worksheets("Лист1").Range("C19").Value = dateDateToRecord
+                       ThisWorkbook.Worksheets("Направление МО").Range("C19").Value = dateDateToRecord
                     End If
 
                       ElseIf strTagArray(2) = "CombinedNotToRecord" Then 'Перепрыгиваем эти значения
@@ -474,8 +474,8 @@ Sub Direction_MO()
     bRow = True  'разрешение изменения высоты строк
     'bRow = False: для изменения ширины столбцов
     Application.ScreenUpdating = False
-        ThisWorkbook.Worksheets("Лист1").Activate
-        ThisWorkbook.Worksheets("Лист1").Range("B28:B32").Select
+        ThisWorkbook.Worksheets("Направление МО").Activate
+        ThisWorkbook.Worksheets("Направление МО").Range("B28:B32").Select
     For Each rc In Selection
         RowColHeightForContent rc, bRow
     Next
@@ -483,11 +483,11 @@ Sub Direction_MO()
     '//////////////////////////////////////////////////////
 
         CreateData = Now()
-        ThisWorkbook.Worksheets("Лист1").Range("B40").Value = CreateData
-        ThisWorkbook.Worksheets("Лист1").Range("B40").NumberFormat = "[$-F800]dddd, mmmm dd, yyyy"
+        ThisWorkbook.Worksheets("Направление МО").Range("B40").Value = CreateData
+        ThisWorkbook.Worksheets("Направление МО").Range("B40").NumberFormat = "[$-F800]dddd, mmmm dd, yyyy"
 
-'        ThisWorkbook.Worksheets("Лист1").Range("O1").Value = CreateData
-'        ThisWorkbook.Worksheets("Лист1").Range("O1") = Format(Now, "yymmddhhmm")
+'        ThisWorkbook.Worksheets("Направление МО").Range("O1").Value = CreateData
+'        ThisWorkbook.Worksheets("Направление МО").Range("O1") = Format(Now, "yymmddhhmm")
     '////////////////////////////////////////////////////////////
 
     'Call MagzineRecord
@@ -505,7 +505,7 @@ Sub Direction_MO()
 
         '/////////////////////////////////////////////////////////////////
                 Dim RangEd As Range                  'Изменяем цвет текста
-        ThisWorkbook.Worksheets("Лист1").Activate
+        ThisWorkbook.Worksheets("Направление МО").Activate
             'RangEd = ActiveSheet.Range("A1:P40").Select
             'RangEd.Font.Color = RGB(200, 150, 250)
                 Range("A1:P40").Font.Color = 0

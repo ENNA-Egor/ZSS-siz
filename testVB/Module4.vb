@@ -92,9 +92,9 @@ ThisWorkbook.Worksheets(firm).Cells(LastRow, ColummnNamber).Offset(OffsetNumber,
                 ThisWorkbook.Worksheets(firm).Cells((LastRow + 1), 5) = UserForm1.TextBox_OName.Value
                 ThisWorkbook.Worksheets(firm).Cells((LastRow + 1), 6) = DataCreat
                 ThisWorkbook.Worksheets(firm).Cells((LastRow + 1), 6) = Format(Now, "dd.mmmm.yyyy  hh:mm")
-                ThisWorkbook.Worksheets("Лист1").Range("O1").Value = NumOf & "-" & DataCreat
+                ThisWorkbook.Worksheets("Направление МО").Range("O1").Value = NumOf & "-" & DataCreat
                 ThisWorkbook.Worksheets(firm).Cells((LastRow + 1), 7) = Type_of_inspection
-                'ThisWorkbook.Worksheets("Лист1").Range("O1") = Format(Now, "yyyy.mm")
+                'ThisWorkbook.Worksheets("Направление МО").Range("O1") = Format(Now, "yyyy.mm")
 '///////////////////////////////////////////////////////////////////////////////////////////////////////
 
  Dim SellRg As Range
