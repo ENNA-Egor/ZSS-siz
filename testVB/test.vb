@@ -2,6 +2,7 @@ Public firm As String
 Public firmMag As String
 Public CreateData As Date
 Public maxDanger As Byte ' Переменная количества вредных факторов
+Public Type_of_inspection As String
 
     
 
@@ -96,239 +97,27 @@ Private Sub CreateDokument()
             End If
         End If
     Next objControlChecked
-'
-'    If OptionButton1 = True Then 'Заносим данные в базу
-'
-'    End If
 
-'   Set listobjNameList = ThisWorkbook.Worksheets("Person").ListObjects("FIO_Table")
-'
-''            'Проверяем наличие записи в базе
-'    For Each rgCellChecked In listobjNameList.ListColumns("Фамилия").DataBodyRange
-'        If rgCellChecked.Value = ComboBox_FName Then
-'            End If
-'    Next rgCellChecked
-'         For Each rgCellChecked In listobjNameList.ListColumns("Фамилия").DataBodyRange
-'                If rgCellChecked.Offset(0, 1).Value = ComboBox_Name Then
-'                End If
-'         Next rgCellChecked
-'            For Each rgCellChecked In listobjNameList.ListColumns("Фамилия").DataBodyRange
-'                    If rgCellChecked.Offset(0, 2).Value = TextBox_OName Then
-'                    Else:  MsgBox "Данная запись отсутствыует в базе. Нажмите добавить для внесения дакнных в базу"
-'                     Call CommandButton_Record_Click
-'                 End If
-'
-'            Next rgCellChecked
-    Call MagzineRecord
+
+
+    If OptionButton3.Value = True Then
+            Type_of_inspection = "ПО"
+        Else
+          Type_of_inspection = "МО"
+        End If
+
+    Call MagzineRecord(Type_of_inspection)
     'Call LastLine
-
-    'Внесение значений в направление
-
-    Dim tagRg As String
-    Dim objFormaList As ListObject
-    Dim rangeData As Range
-    Dim dateDateToRecord As Date
-    Dim NameToRecord As String
-    Dim rangeLinn As Range
-    maxDanger = 4  ' Количества вредных факторов
-
-
-    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("authorized_Tables") 'Заполняем ячейку должности ответственного
-    For Each rgCellChecked In listobjTables.ListColumns("Фамилия И.О.").DataBodyRange
-        If rgCellChecked.Value = ComboBox2.Value Then
-            ThisWorkbook.Worksheets("Лист1").Range("A36") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Должность").DataBodyRange)
-        End If
-    Next rgCellChecked
-
-    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("Harmful_factors_Tab") 'Заполняем таблицу вредных факторов
-    For Each rgCellChecked In listobjTables.ListColumns("Профессия").DataBodyRange
-        If rgCellChecked.Value = ComboBox_Prof.Value Then
-            For i = 1 To maxDanger
-                 ThisWorkbook.Worksheets("Лист1").Cells((i + 27), 2).EntireRow.AutoFit
-                 ThisWorkbook.Worksheets("Лист1").Cells((i + 27), 2) = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Вредный фактор " & i).DataBodyRange)
-            Next i
-        End If
-    Next rgCellChecked
-
-    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем ячейку адреса 1
-    For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
-        If rgCellChecked.Value = ComboBox1.Value Then
-            ThisWorkbook.Worksheets("Лист1").Range("A5") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Адрес1").DataBodyRange)
-        End If
-    Next rgCellChecked
-
-
-    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем ячейку адреса 2
-    For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
-        If rgCellChecked.Value = ComboBox1.Value Then
-            ThisWorkbook.Worksheets("Лист1").Range("A6") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Адрес2").DataBodyRange)
-        End If
-    Next rgCellChecked
-
-    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем ячейку телефоны и mail
-    For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
-        If rgCellChecked.Value = ComboBox1.Value Then
-                tel1 = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Телефон").DataBodyRange)
-                tel2 = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Телефон/факс").DataBodyRange)
-                tel3 = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("email").DataBodyRange)
-            ThisWorkbook.Worksheets("Лист1").Range("A7") = tel1 & "   " & tel2 & "   " & tel3
-
-        End If
-    Next rgCellChecked
-
-
-    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем ячейки ОГРН
-       For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
-           If rgCellChecked.Value = ComboBox1.Value Then
-                For i = 1 To 13
-                    'n = i + 1
-                   ThisWorkbook.Worksheets("Лист1").Cells(10, (i + 1)) = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("ОГРН " & i).DataBodyRange)
-                Next i
-            End If
-    Next rgCellChecked
-
-
-           If OptionButton1 = True Then 'Подчёркиваем периодический или предварительный
-
-    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 1)
-            rangeLinn.Font.Underline = True
-    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 6)
-            ThisWorkbook.Worksheets("Лист1").Cells(12, 9).Value = "предварительный"
-            rangeLinn.Font.Underline = False
-            Else:
-    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 1)
-            rangeLinn.Font.Underline = False
-    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 6)
-            ThisWorkbook.Worksheets("Лист1").Cells(12, 9).Value = "периодический"
-            rangeLinn.Font.Underline = True
-            End If
-
-        For Each objControlChecked In Me.Controls
-            If objControlChecked.Tag <> "" Then
-              strTagArray = Split(objControlChecked.Tag, "_")
-               tagRg = strTagArray(0)
-                If strTagArray(2) = "UnifidetToRecord" Then   'запись целых значений
-
-                    If objControlChecked.Value = ComboBox1 Then
-                        Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем наименование предприятия
-                            For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
-                                    If rgCellChecked.Value = ComboBox1.Value Then
-                                     ThisWorkbook.Worksheets("Лист1").Range("A2") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Предприятие").DataBodyRange)
-                                    End If
-                        Next rgCellChecked
-
-
-
-
-                 Else: ThisWorkbook.Worksheets("Лист1").Range(tagRg) = objControlChecked.Value
-              End If
-
-                ElseIf strTagArray(2) = "CombinedToRecord" Then ' запись комбинируемых значений
-                    'Отдельная строка для каждого комбинируемого значения
-
-                    If objControlChecked.Name = "ComboBox_FName" Then  'Фамилия Имя отчество
-                        NameToRecord = (objControlChecked.Value & "  " & Me.Controls("ComboBox_Name").Value & "  " & Me.Controls("TextBox_OName").Value)
-                        ThisWorkbook.Worksheets("Лист1").Range(tagRg).Value = NameToRecord
-                     ElseIf objControlChecked.Name = "ComboBox_DataRozd_Day" Then 'Дата рождения
-                       dateDateToRecord = DateSerial(Me.Controls("ComboBox_DataRozd_Year").Value, Me.Controls("ComboBox_DataRozd_Mont").Value, objControlChecked.Value)
-
-                       ThisWorkbook.Worksheets("Лист1").Range("C19").Value = dateDateToRecord
-                    End If
-                      ElseIf strTagArray(2) = "CombinedNotToRecord" Then 'Перепрыгиваем эти значения
-                      'Эти элементы отдельно не записываем
-                      End If
-
-
-
-              End If
-    Next objControlChecked
-    '//////////////////////////////////////////////////
-    Dim rc As Range
-    Dim bRow As Boolean
-    'bRow = (MsgBox("Изменять высоту строк?", vbQuestion + vbYesNo, "www.excel-vba.ru") = vbYes)
-    bRow = True  'для изменения высоты строк
-    'bRow = False: для изменения ширины столбцов
-    Application.ScreenUpdating = False
-        ThisWorkbook.Worksheets("Лист1").Activate
-        ThisWorkbook.Worksheets("Лист1").Range("B28:B32").Select
-    For Each rc In Selection
-        RowColHeightForContent rc, bRow
-    Next
-    Application.ScreenUpdating = True
-    '//////////////////////////////////////////////////////
-
-        CreateData = Now()
-        ThisWorkbook.Worksheets("Лист1").Range("B40").Value = CreateData
-
-'        ThisWorkbook.Worksheets("Лист1").Range("O1").Value = CreateData
-'        ThisWorkbook.Worksheets("Лист1").Range("O1") = Format(Now, "yymmddhhmm")
-    '////////////////////////////////////////////////////////////
-
-    'Call MagzineRecord
-
-    '////////////////////////////////////////////////////////////
-    On Error Resume Next
-
-        Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Наименование подпапки
-                            For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
-                                    If rgCellChecked.Value = ComboBox1.Value Then
-                                     firm = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Пр. мин").DataBodyRange)
-                                     firmMag = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("firmMag").DataBodyRange)
-                                    End If
-                        Next rgCellChecked
-
-        '/////////////////////////////////////////////////////////////////
-                Dim RangEd As Range                  'Изменяем цвет текста
-        ThisWorkbook.Worksheets("Лист1").Activate
-            'RangEd = ActiveSheet.Range("A1:P40").Select
-            'RangEd.Font.Color = RGB(200, 150, 250)
-                Range("A1:P40").Font.Color = 0
-
-        '////////////////////////////////////////////////////////////////
-
-    ' название подпапки, в которую по-умолчанию будет предложено сохранить файл
-    Const REPORTS_FOLDER = "Направления\"
-
-    REPORTS_UnFOLDER = firm
-    ' создаём папку для файла, если её ещё нет
-    MkDir ThisWorkbook.Path & "\" & REPORTS_FOLDER
-    MkDir ThisWorkbook.Path & "\" & REPORTS_FOLDER & REPORTS_UnFOLDER & "\"
-    ' выбираем стартовую папку
-    ChDrive Left(ThisWorkbook.Path, 1): ChDir ThisWorkbook.Path & "\" & REPORTS_FOLDER & REPORTS_UnFOLDER & "\"
-
-    ' вывод диалогового окна для запроса имени сохраняемого файла
-    NumDat.Value = Now()
-    NumDat = Format(Now, "yyyy.mm.dd.hh.nn")
-'        NumDat = 12457836
-    FName = ComboBox_FName.Value
-    LastName = FName & " " & NumDat & ".xls"
-    Filename = Application.GetSaveAsFilename(LastName, "Отчёты Excel (*.xls),", , _
-                                             "Введите имя файла для сохраняемого отчёта", "Сохранить")
-    ' если пользователь отказался от выбора имени файла - отменяем сохранение листа в файл
-    If VarType(Filename) = vbBoolean Then Exit Sub
-
-    ' копируем активный лист (при этом создаётся новая книга)
-    Err.Clear: ActiveSheet.Copy: DoEvents
-    If Err Then Exit Sub    ' произошла какая-то ошибка при попытке копирования листа
-
-    ' убеждаемся, что активной книгой является копия листа
-    If ActiveWorkbook.Worksheets.Count = 1 And ActiveWorkbook.Path = "" Then
-        ' сохраняем файл под заданным именем в формате Excel 2003
-        ActiveWorkbook.SaveAs Filename, xlWorkbookNormal
-
-        ' выводим файл  на печать
-'        ActiveSheet.PrintOut From:=1, To:=1
-
-        ' закрываем сохранённый файл
-        ' (удалите следующую строку, если закрывать созданный файл не требуется)
-         ActiveWorkbook.Close False
-
+    
+    If OptionButton3.Value = True Then
+        MsgBox "Заполняем форму ПО"
+        Exit Sub
+    Else: Call Direction_MO
     End If
 
 
-    '///////////////////////////////////////////////////////////
          Call FinishVar
-
+'    ////////////////////////////////////////////////////////////////
 
 End Sub
 
@@ -478,6 +267,12 @@ Dim listobjNameList As ListObject
         ' 1 Наименование столбца таблицы
         ' 2 Цельное или сборное значение
         ' 3 обязательное или нет поле
+        '    Структура тэгов:
+'    Delimiter = "_"
+'    Ячейка = Range "C2"
+    'Обязательное поле = да/нет
+    'Цельное или сбоное значение = [UnifidetToRecord/CombinedToRecord/CombinedNotToRecord]
+    'Столбец таблицы целое в таблицу  RecordToTable /Сборное в таблицу CombinedRecordToTable/ CombinedNotRecordToTable незаписываем
 
         'Проверка наличия аналогичной записи
 
@@ -496,10 +291,12 @@ Set listobjNameList = ThisWorkbook.Worksheets("Person").ListObjects("FIO_Table")
         End If
     Next rgCellChecked
 
-       'Проверка полноты данных
+'       'Проверка полноты данных
        For Each objControlChecked In Me.Controls
+'       MsgBox objControlChecked.Tag
         If objControlChecked.Tag <> "" Then
             strTagArray = Split(objControlChecked.Tag, "_")
+'             MsgBox strTagArray(5)
             If strTagArray(5) = "Y" And objControlChecked.Visible = True Then
                 If objControlChecked.Value = "" Then
                     MsgBox "заполните все обязательные поля", vbExclamation
@@ -521,7 +318,7 @@ Dim listobjOrderList As ListObject
         If objControlChecked.Tag <> "" Then
             strTagArray = Split(objControlChecked.Tag, "_")
            'MsgBox strTagArray(4)
-              If strTagArray(4) = "RecordToTable" Then   'запись целых значений
+              If strTagArray(4) = "RecordToTable" Then   'запись целых значений в таюлицу FIO_Table
             Intersect(rgNewOrderLine, listobjOrderList.ListColumns(strTagArray(3)).DataBodyRange) = objControlChecked.Value
                 ElseIf strTagArray(4) = "CombinedRecordToTable" Then ' запись комбинируемых значений
                     'Отдельная строка для каждого комбинируемого значения
@@ -543,9 +340,219 @@ Dim listobjOrderList As ListObject
         Call CreateDokument
         Else: Call CloseSheet
         'Call CloseSheet
-        End If
+    End If
 
 
 '    Call CommandButton1_Click
 End Sub
+
+Sub Direction_MO()
+
+    '    'Внесение значений в направление
+'   ///////////////////////////////////////////////////////////////////////////////
+    Dim tagRg As String
+    Dim objFormaList As ListObject
+    Dim rangeData As Range
+    Dim dateDateToRecord As Date
+    Dim NameToRecord As String
+    Dim rangeLinn As Range
+    maxDanger = 4  ' Количества вредных факторов
+
+
+    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("authorized_Tables") 'Заполняем ячейку должности ответственного
+    For Each rgCellChecked In listobjTables.ListColumns("Фамилия И.О.").DataBodyRange
+        If rgCellChecked.Value = ComboBox2.Value Then
+            ThisWorkbook.Worksheets("Лист1").Range("A36") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Должность").DataBodyRange)
+        End If
+    Next rgCellChecked
+
+    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("Harmful_factors_Tab") 'Заполняем таблицу вредных факторов
+    For Each rgCellChecked In listobjTables.ListColumns("Профессия").DataBodyRange
+        If rgCellChecked.Value = ComboBox_Prof.Value Then
+            For i = 1 To maxDanger
+                 ThisWorkbook.Worksheets("Лист1").Cells((i + 27), 2).EntireRow.AutoFit
+                 ThisWorkbook.Worksheets("Лист1").Cells((i + 27), 2) = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Вредный фактор " & i).DataBodyRange)
+            Next i
+        End If
+    Next rgCellChecked
+
+    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем ячейку адреса 1
+    For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
+        If rgCellChecked.Value = ComboBox1.Value Then
+            ThisWorkbook.Worksheets("Лист1").Range("A5") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Адрес1").DataBodyRange)
+        End If
+    Next rgCellChecked
+
+
+    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем ячейку адреса 2
+    For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
+        If rgCellChecked.Value = ComboBox1.Value Then
+            ThisWorkbook.Worksheets("Лист1").Range("A6") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Адрес2").DataBodyRange)
+        End If
+    Next rgCellChecked
+
+    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем ячейку телефоны и mail
+    For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
+        If rgCellChecked.Value = ComboBox1.Value Then
+                tel1 = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Телефон").DataBodyRange)
+                tel2 = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Телефон/факс").DataBodyRange)
+                tel3 = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("email").DataBodyRange)
+            ThisWorkbook.Worksheets("Лист1").Range("A7") = tel1 & "   " & tel2 & "   " & tel3
+
+        End If
+    Next rgCellChecked
+
+
+    Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем ячейки ОГРН
+       For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
+           If rgCellChecked.Value = ComboBox1.Value Then
+                For i = 1 To 13
+                    'n = i + 1
+                   ThisWorkbook.Worksheets("Лист1").Cells(10, (i + 1)) = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("ОГРН " & i).DataBodyRange)
+                Next i
+            End If
+    Next rgCellChecked
+
+
+           If OptionButton1 = True Then 'Подчёркиваем периодический или предварительный
+
+    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 1)
+            rangeLinn.Font.Underline = True
+    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 6)
+            ThisWorkbook.Worksheets("Лист1").Cells(12, 9).Value = "предварительный"
+            rangeLinn.Font.Underline = False
+            Else:
+    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 1)
+            rangeLinn.Font.Underline = False
+    Set rangeLinn = ThisWorkbook.Worksheets("Лист1").Cells(21, 6)
+            ThisWorkbook.Worksheets("Лист1").Cells(12, 9).Value = "периодический"
+            rangeLinn.Font.Underline = True
+            End If
+
+        For Each objControlChecked In Me.Controls
+            If objControlChecked.Tag <> "" Then
+              strTagArray = Split(objControlChecked.Tag, "_")
+               tagRg = strTagArray(0)
+                If strTagArray(2) = "UnifidetToRecord" Then   'запись целых значений
+
+                    If objControlChecked.Value = ComboBox1 Then
+                        Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Заполняем наименование предприятия
+                            For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
+                                    If rgCellChecked.Value = ComboBox1.Value Then
+                                     ThisWorkbook.Worksheets("Лист1").Range("A2") = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Предприятие").DataBodyRange)
+                                    End If
+                        Next rgCellChecked
+
+
+
+
+                 Else: ThisWorkbook.Worksheets("Лист1").Range(tagRg) = objControlChecked.Value 'Целые значения в ячейки согласно данным тегов
+              End If
+
+                ElseIf strTagArray(2) = "CombinedToRecord" Then ' запись комбинируемых значений
+                    'Отдельная строка для каждого комбинируемого значения
+
+                    If objControlChecked.Name = "ComboBox_FName" Then  'Фамилия Имя отчество
+                        NameToRecord = (objControlChecked.Value & "  " & Me.Controls("ComboBox_Name").Value & "  " & Me.Controls("TextBox_OName").Value)  'Собираем данные в одну строку.
+                        ThisWorkbook.Worksheets("Лист1").Range(tagRg).Value = NameToRecord
+
+                     ElseIf objControlChecked.Name = "ComboBox_DataRozd_Day" Then 'Дата рождения
+                       dateDateToRecord = DateSerial(Me.Controls("ComboBox_DataRozd_Year").Value, Me.Controls("ComboBox_DataRozd_Mont").Value, objControlChecked.Value) 'Собираем данные в одну строку.
+                       ThisWorkbook.Worksheets("Лист1").Range("C19").Value = dateDateToRecord
+                    End If
+
+                      ElseIf strTagArray(2) = "CombinedNotToRecord" Then 'Перепрыгиваем эти значения
+                      'Эти элементы отдельно не записываем т.к. они являются частью составных
+                      End If
+
+              End If
+    Next objControlChecked
+    '//////////////////////////////////////////////////
+    Dim rc As Range
+    Dim bRow As Boolean
+    'bRow = (MsgBox("Изменять высоту строк?", vbQuestion + vbYesNo, "www.excel-vba.ru") = vbYes)
+    bRow = True  'разрешение изменения высоты строк
+    'bRow = False: для изменения ширины столбцов
+    Application.ScreenUpdating = False
+        ThisWorkbook.Worksheets("Лист1").Activate
+        ThisWorkbook.Worksheets("Лист1").Range("B28:B32").Select
+    For Each rc In Selection
+        RowColHeightForContent rc, bRow
+    Next
+    Application.ScreenUpdating = True
+    '//////////////////////////////////////////////////////
+
+        CreateData = Now()
+        ThisWorkbook.Worksheets("Лист1").Range("B40").Value = CreateData
+        ThisWorkbook.Worksheets("Лист1").Range("B40").NumberFormat = "[$-F800]dddd, mmmm dd, yyyy"
+
+'        ThisWorkbook.Worksheets("Лист1").Range("O1").Value = CreateData
+'        ThisWorkbook.Worksheets("Лист1").Range("O1") = Format(Now, "yymmddhhmm")
+    '////////////////////////////////////////////////////////////
+
+    'Call MagzineRecord
+
+    '////////////////////////////////////////////////////////////
+    On Error Resume Next
+
+        Set listobjTables = ThisWorkbook.Worksheets("Data").ListObjects("RequisitesTables") 'Наименование подпапки
+                            For Each rgCellChecked In listobjTables.ListColumns("Пр.").DataBodyRange
+                                    If rgCellChecked.Value = ComboBox1.Value Then
+                                     firm = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("Пр. мин").DataBodyRange)
+                                     firmMag = Intersect(rgCellChecked.EntireRow, listobjTables.ListColumns("firmMag").DataBodyRange)
+                                    End If
+                        Next rgCellChecked
+
+        '/////////////////////////////////////////////////////////////////
+                Dim RangEd As Range                  'Изменяем цвет текста
+        ThisWorkbook.Worksheets("Лист1").Activate
+            'RangEd = ActiveSheet.Range("A1:P40").Select
+            'RangEd.Font.Color = RGB(200, 150, 250)
+                Range("A1:P40").Font.Color = 0
+
+        '////////////////////////////////////////////////////////////////
+
+    ' название подпапки, в которую по-умолчанию будет предложено сохранить файл
+    Const REPORTS_FOLDER = "Направления\"
+
+    REPORTS_UnFOLDER = firm
+    ' создаём папку для файла, если её ещё нет
+    MkDir ThisWorkbook.Path & "\" & REPORTS_FOLDER
+    MkDir ThisWorkbook.Path & "\" & REPORTS_FOLDER & REPORTS_UnFOLDER & "\"
+    ' выбираем стартовую папку
+    ChDrive Left(ThisWorkbook.Path, 1): ChDir ThisWorkbook.Path & "\" & REPORTS_FOLDER & REPORTS_UnFOLDER & "\"
+
+    ' вывод диалогового окна для запроса имени сохраняемого файла
+    NumDat.Value = Now()
+    NumDat = Format(Now, "yyyy.mm.dd.hh.nn")
+'        NumDat = 12457836
+    FName = ComboBox_FName.Value
+    LastName = FName & " " & NumDat & ".xls"
+    Filename = Application.GetSaveAsFilename(LastName, "Отчёты Excel (*.xls),", , _
+                                             "Введите имя файла для сохраняемого отчёта", "Сохранить")
+    ' если пользователь отказался от выбора имени файла - отменяем сохранение листа в файл
+    If VarType(Filename) = vbBoolean Then Exit Sub
+
+    ' копируем активный лист (при этом создаётся новая книга)
+    Err.Clear: ActiveSheet.Copy: DoEvents
+    If Err Then Exit Sub    ' произошла какая-то ошибка при попытке копирования листа
+
+    ' убеждаемся, что активной книгой является копия листа
+    If ActiveWorkbook.Worksheets.Count = 1 And ActiveWorkbook.Path = "" Then
+        ' сохраняем файл под заданным именем в формате Excel 2003
+        ActiveWorkbook.SaveAs Filename, xlWorkbookNormal
+
+        ' выводим файл  на печать
+'        ActiveSheet.PrintOut From:=1, To:=1
+
+        ' закрываем сохранённый файл
+        ' (удалите следующую строку, если закрывать созданный файл не требуется)
+         ActiveWorkbook.Close False
+
+    End If
+
+End Sub
+
+
+
 
